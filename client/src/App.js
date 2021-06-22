@@ -6,8 +6,8 @@ import Navbar from './components/NavBar/navbar';
 import Search from './components/Search/search'
 import PokeDetails from './components/PokemonDetails/pokemondetails';
 import Create from './components/CreatePokemon/create';
-import Container from './components/FilterContainer/container';
-import ApiContainer from './components/apiPokemons/apiPokemons';
+// import Container from './components/FilterContainer/container';
+// import ApiContainer from './components/apiPokemons/apiPokemons';
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
       component={Create} 
       />     
 
-      <Route
+      {/* <Route
       path="/DBpokemons"
       component={Container} 
       />    
@@ -50,7 +50,7 @@ function App() {
       <Route
       path="/APIpokemons"
       component={ApiContainer} 
-      />
+      /> */}
 
     </div>
   );

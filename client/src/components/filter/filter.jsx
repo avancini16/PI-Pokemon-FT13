@@ -17,6 +17,7 @@ export default function Filter({paginate}){
         paginate(e, 1);
     };
 
+    //Ordenado
     const handleOrder = (e) => {
         if (e.target.value === "asc_name" || e.target.value === "asc_force") {
           dispatch(orderAsc(e.target.value));
@@ -27,17 +28,17 @@ export default function Filter({paginate}){
         }
       };
     
-      // Filtrado por API/DB
-      const handleCreator = (e) => {
-        if (e.target.value === "api" || e.target.value === "Created") {
-          dispatch(orderByCreator(e.target.value));
-          paginate(e, 1);
-        } else {
-          dispatch(filterByType(e.target.value));
-          paginate(e, 1);
-        }
-        
-      };
+    // Filtrado por API/DB
+    const handleCreator = (e) => {
+      if (e.target.value === "api" || e.target.value === "Created") {
+        dispatch(orderByCreator(e.target.value));
+        paginate(e, 1);
+      } else {
+        dispatch(filterByType(e.target.value));
+        paginate(e, 1);
+      }
+      
+    };
 
 
     return(

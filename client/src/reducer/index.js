@@ -18,16 +18,16 @@ export default function rootReducer(state = initialState, action){
           ...state,
           pokemons: action.payload,
         };
-        case "GET_DB_POKEMONS":
-          return{
-            ...state,
-            DBpokemons: action.payload,
-          }
-          case "GET_API_POKEMONS":
-          return{
-            ...state,
-            APIpokemons: action.payload,
-          }
+        // case "GET_DB_POKEMONS":
+        //   return{
+        //     ...state,
+        //     DBpokemons: action.payload,
+        //   }
+        //   case "GET_API_POKEMONS":
+        //   return{
+        //     ...state,
+        //     APIpokemons: action.payload,
+        //   }
         case "SEARCH_POKEMON":
          return {
           ...state,
