@@ -1,0 +1,30 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px ;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.cont{
+    width: 500px;
+    display: inline-flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.pagination button{
+    background: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    background-color: #211C1B;
+}
+
+.item button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #211C1B;
+}
