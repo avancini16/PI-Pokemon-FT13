@@ -90,4 +90,4 @@ __Ruta de creación__: debe contener
 
 #### Testing
 - [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] 
+
