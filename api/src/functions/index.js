@@ -6,8 +6,6 @@ const {Pokemon} = require('../db')
 //            TRAE 12 POKEMONS PARA HOME
 async function GetPokemons(req, res){
     let pokemons = [];
-    // let dbPoke= Pokemon.findAll()
-    // .then(pokemon => pokemons = pokemons.concat(pokemon))
     let api = 'https://pokeapi.co/api/v2/pokemon';
     const fetch = (await axios.get(api)).data;
     for(let i=0; i<12; i++){
@@ -21,7 +19,6 @@ async function GetPokemons(req, res){
         }
         pokemons = pokemons.concat(pokemon);
     }
-    // pokemons = pokemons.concat(dbPoke);
     res.send(pokemons);
 }
 
@@ -52,14 +49,11 @@ async function GetMorePokemons(req, res){
         }
         api = fetch.next
     }
-    // pokemons = pokemons.concat(dbPoke);
     res.send(pokemons);
 }
 
 async function GetApiPokemons(req, res){
     let pokemons = [];
-    // let dbPoke= Pokemon.findAll()
-    // .then(pokemon => pokemons = pokemons.concat(pokemon))
     let api = 'https://pokeapi.co/api/v2/pokemon';
     for(let j = 0; j < 2; j++){
         const fetch = (await axios.get(api)).data;
@@ -118,25 +112,6 @@ async function GetApiPokemons(req, res){
         speed: fetch.stats[5].base_stat
     }
     res.send(pokemon);
-
-    //--------------------------------------------------------------------------------------------//
-
-    // let name = req.query.name;
-    // const MyCharacter = Pokemon.findOne({where: {name: name}})
-    // const apiCharacter = axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-    // Promise.all([MyCharacter, apiCharacter])
-    // .then((results)=>{
-    //     const [MyCharacterResults, apiCharacterResults] = results;
-    //     let arr = [];
-    //     arr.push(MyCharacterResults);
-    //     arr.push(apiCharacterResults.data);
-    //     res.send(arr)
-    // })
-    // .catch( error => next(error))
-
-    //FUNCIONA CON LA BASE DE DATOS
-    // .then(pokemon => arr.push(pokemon))
-    // res.send(arr)
 }
 
 //              POSTEA UN POKEMON EN DATABASE
@@ -199,19 +174,6 @@ async function GetAllPokemons(req, res){
 
 async function GetById(req, res, next){
     let id = req.params.id;
-    // const MyCharacter = Pokemon.findByPk(id)
-    // const apiCharacter = axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    // Promise.all([MyCharacter, apiCharacter])
-    // .then((results)=>{
-    //     const [MyCharacterResults, apiCharacterResults] = results;
-    //     let arr = [];
-    //     if(MyCharacterResults !== null){
-    //         arr.push(MyCharacterResults);
-    //     }
-    //     arr.push(apiCharacterResults.data);
-    //     res.send(arr)
-    // })
-    // .catch( error => next(error))
     let pokemons = [];
     let dbPokemons = await Pokemon.findAll()
       let jsonPoke = dbPokemons.map((J) => J.toJSON())
@@ -242,8 +204,6 @@ async function GetById(req, res, next){
         }
         api = fetch.next
     }
-    // pokemons = pokemons.concat(dbPoke);
-    // res.send(pokemons);
     for(let t = 0; t < pokemons.length; t++){
         if(pokemons[t].id == id){
             res.send(pokemons[t]);
@@ -251,11 +211,7 @@ async function GetById(req, res, next){
     }
 }
 
-async function GetFromDB(req, res, next){
-    // let DBpokemons = Pokemon.findAll()
-    // .then(pokemon=> res.send(pokemon ))
-    // .catch(error => next(error))
-
+async function GetFromDB(req, res){
     let arr = [];
     let dbPokemons = await Pokemon.findAll()
       let jsonPoke = dbPokemons.map((J) => J.toJSON())
