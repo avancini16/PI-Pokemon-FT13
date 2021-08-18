@@ -6,7 +6,7 @@ const {Pokemon} = require('../db')
 //            TRAE POKEMONS DE LA DB
 async function GetPokemons(req, res){ 
     try{
-        let j = 1;
+        // let j = 1;
         let api = 'https://pokeapi.co/api/v2/pokemon';
         for ( let i = 0; i < 2; i++){
             let fetch = (await axios.get(api)).data;
@@ -15,7 +15,8 @@ async function GetPokemons(req, res){
                 await Pokemon.findOrCreate({
                     where:{
                         name: pokeInfo.name,
-                        id: j,
+                        // id: j,
+                        source: 'api',
                         type: pokeInfo.types.map(t => t.type.name).join(', '),
                         img: pokeInfo.sprites.other.dream_world.front_default,
                         attack: pokeInfo.stats[1].base_stat,
@@ -27,7 +28,7 @@ async function GetPokemons(req, res){
                         speed: pokeInfo.stats[5].base_stat,
                     }
                 })
-                j = j + 1;
+                // j = j + 1;
             }
             api = fetch.next;
         }
@@ -77,14 +78,9 @@ async function GetById(req, res, next){
 
 //              POSTEA UN POKEMON EN DATABASE
 async function PostPokemon(req, res, next){
-    // FUNCIONA 
-    // const newpokemon = req.body.newpokemon;
-    // return Pokemon.create(newpokemon)
-    // .then(pokemons => res.send(pokemons))
-    // .catch(error => next(error))
     const {
-        id,
         name,
+        source,
         img,
         hp,
         attack,
@@ -97,7 +93,7 @@ async function PostPokemon(req, res, next){
     return Pokemon.create(
         {
             name,
-            id,
+            source,
             img,
             hp,
             attack,
@@ -116,14 +112,16 @@ async function PostPokemon(req, res, next){
 async function GetTypes(req, res){
     try{
         const api = await axios.get('https://pokeapi.co/api/v2/type')
-        var i = 1;
+        // var i = 1;
         api.data.results.forEach(element => 
             {
             Type.findOrCreate({
-                where: { name: element.name,
-                id: i}
+                where: { 
+                    name: element.name,
+                    // id: i
+                }
             })
-            i = i +1;
+            // i = i +1;
         })
         const types = await Type.findAll()
         res.send(types);
