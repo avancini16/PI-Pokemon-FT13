@@ -8,25 +8,6 @@ export function getPokemons() {
     }
 }
 
-// export function getDbPokemons() {
-//   return function (dispatch) {
-//     return fetch('http://localhost:3001/DBPokemons')
-//       .then(response => response.json())
-//       .then(json => {
-//         dispatch({ type: "GET_DB_POKEMONS", payload: json });
-//       });
-//   }
-// }
-// export function getApiPokemons() {
-//   return function (dispatch) {
-//     return fetch('http://localhost:3001/APIPoke')
-//       .then(response => response.json())
-//       .then(json => {
-//         dispatch({ type: "GET_API_POKEMONS", payload: json });
-//       });
-//   }
-// }
-
 export function searchPokemon(name) {
     return (dispatch) =>
       fetch(`http://localhost:3001/name?name=${name}`)

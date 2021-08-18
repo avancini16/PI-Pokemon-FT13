@@ -8,7 +8,7 @@ export default function Create(){
     const types = useSelector((store) => store.types);
 
     const [pokemon, setPokemon] = useState({
-        id: 0,
+        source: "",
         name: "",
         img: "",
         hp: 0,
@@ -18,7 +18,6 @@ export default function Create(){
         height: 0,
         weight: 0,
         type: [],
-        // type: []
     });
 
     useEffect(() => {
@@ -44,7 +43,7 @@ export default function Create(){
         e.preventDefault();
 
         const obj = {
-            id: pokemon.id,
+            source: 'Created',
             name: pokemon.name,
             img: pokemon.img,
             hp: pokemon.hp,
@@ -62,10 +61,10 @@ export default function Create(){
             alert("Hey! Don't forget the name.")
             return
         }
-        if (!obj.id) {
-            alert("Hey! Don't forget the id.")
-            return
-        }
+        // if (!obj.id) {
+        //     alert("Hey! Don't forget the id.")
+        //     return
+        // }
 
 
         dispatch(createPokemon(obj));
@@ -74,7 +73,7 @@ export default function Create(){
         /* dispatch(getVideogames()) */
 
         setPokemon({
-            id: 0,
+            source: "",
             name: "",
             img: "",
             hp: 0,
@@ -100,7 +99,7 @@ export default function Create(){
                 <h1 className={style.text}>Create your pokemon!</h1>
             </div>
             <div>
-                <div>
+                {/* <div>
                     <h3 className={style.text}>Id: </h3>
                     <input 
                     type="text"
@@ -109,7 +108,7 @@ export default function Create(){
                     className={style.input}
                     // onChange={e => setPokemon(e.target.value)}                    
                     />
-                </div>
+                </div> */}
                 <div>
                     <h3 className={style.text}>Name: </h3>
                     <input 

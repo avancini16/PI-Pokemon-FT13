@@ -79,7 +79,7 @@ export default function Filter({paginate}){
         <select onChange={(e) => handleCreator(e)} className={style.box}>
           <option default>All</option>
           <option value='api'>Api </option>
-          <option value='Created'>Database</option>
+          <option value='Created'>Created</option>
         </select>
       </div>
     </div>
