@@ -53,7 +53,6 @@ export default function Create(){
             height: pokemon.height,
             weight: pokemon.weight,
             type: pokemon.type,
-            // type: pokemon.type
         };
 
         // Validaciones
@@ -61,16 +60,10 @@ export default function Create(){
             alert("Hey! Don't forget the name.")
             return
         }
-        // if (!obj.id) {
-        //     alert("Hey! Don't forget the id.")
-        //     return
-        // }
-
 
         dispatch(createPokemon(obj));
         e.target.reset();
         alert("Pokemon created successfully!");
-        /* dispatch(getVideogames()) */
 
         setPokemon({
             source: "",
@@ -83,7 +76,6 @@ export default function Create(){
             height: 0,
             weight: 0,
             type: [],
-            // type: []
         });
     };
 
@@ -99,16 +91,6 @@ export default function Create(){
                 <h1 className={style.text}>Create your pokemon!</h1>
             </div>
             <div>
-                {/* <div>
-                    <h3 className={style.text}>Id: </h3>
-                    <input 
-                    type="text"
-                    name='id'
-                    value={pokemon.id} 
-                    className={style.input}
-                    // onChange={e => setPokemon(e.target.value)}                    
-                    />
-                </div> */}
                 <div>
                     <h3 className={style.text}>Name: </h3>
                     <input 
@@ -116,8 +98,6 @@ export default function Create(){
                     name="name"
                     value={pokemon.name} 
                     className={style.input}
-                    // onChange={e => setPokemon(e.target.value)}                    
-
                     />
                 </div>
                 <div>
@@ -126,12 +106,14 @@ export default function Create(){
                 </div>
                 <div>
                     <h3 className={style.text}>Select the type of pokemon</h3>
+                    <div>
                     {types.map(elem =>(
-                        <div key={elem.name}>
+                        <div key={elem.name} className={style.check} >
                             {elem.name}
-                            <input type="checkbox" value={elem.name} name='type'/>
+                            <input type="checkbox" value={elem.name} name='type' />
                         </div>
                     ))}
+                    </div>
                 </div>
                 <div>
                     <h3 className={style.text}>Hp:</h3>

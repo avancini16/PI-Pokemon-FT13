@@ -5,8 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('https://wallpapercave.com/wp/cqhO8rQ.jpg');
-  background-size: 1400px 700px;
+  /* background-image: url('https://wallpapercave.com/wp/cqhO8rQ.jpg');
+  background-size: 1400px 700px; */
+  background-color: red;
   background-repeat: no-repeat;
   background-attachment: fixed 
 }
